@@ -1,11 +1,12 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import './App.css'
+import './styles/App.css'
 import AboutPage from './pages/About'
 import ContactPage from './pages/Contact'
 import HomePage from './pages/Home'
 import PageNotFound from './pages/PageNotFound'
 import BaseLayout from './pages/_baseLayout'
+import Navbar from './components/Navbar'
 
 function App() {
   
@@ -13,22 +14,18 @@ function App() {
   return (
     <>
     <BrowserRouter>
-        <Routes>
 
+        <Navbar />
+
+
+
+        <Routes>
           <Route path='/' element={<BaseLayout />}>
             <Route index element={<HomePage />} />
             <Route path='/about/services' element={<AboutPage />} />
             <Route path='/contact' element={<ContactPage />} />
             <Route path='*' element={<PageNotFound />} /> 
           </Route>
-          
-
-          {/* <Route path='/' element={<HomePage />}>
-            <Route path='about'>
-              <Route path='services' element={<AboutPage />} />
-            </Route>
-            <Route path='contact' element={<ContactPage />} />
-          </Route> */}
         </Routes>
       </BrowserRouter>
     </>
@@ -36,4 +33,3 @@ function App() {
 }
 
 export default App
-
